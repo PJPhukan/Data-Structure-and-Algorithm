@@ -4,6 +4,7 @@ using namespace std;
 int main()
 {
     /*
+
         int a=2;
         int b=4;
         cout<<"a & b  :"<<(a&b )<<endl;//AND
@@ -13,7 +14,6 @@ int main()
         cout<<"a ^ b  :"<<(a^b )<<endl; //XOR
 
     */
-
     /*
         //In positive number padding always 0,but in negative number padding depends on compiler.(bitwise left & right operator)
         cout<<"3<<1  :"<<(3<<1)<<endl; //LEFT SHIFT (3*(2*1))
