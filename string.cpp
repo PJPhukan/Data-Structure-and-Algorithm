@@ -29,11 +29,32 @@ void ReverseString(char ch[])
         // char temp = ch[i];
         // ch[i] = ch[j];
         // ch[j] = temp;
-        
-        //Using swap inbuild function
 
-        swap(ch[i],ch[j]);
+        // Using swap inbuild function
+
+        swap(ch[i], ch[j]);
     }
+}
+
+// -------------------**************************-------------------
+
+bool Check_Palinodrome(char ch[])
+{
+    int length = CountLength(ch);
+    int i = 0, j = length - 1;
+    while (i < j)
+    {
+        if (ch[i] != ch[j])
+        {
+            return false;
+        }
+        else
+        {
+            i++,j--;
+        }
+        
+    }
+    return true;
 }
 
 // -------------------**************************-------------------
@@ -63,8 +84,19 @@ int main()
 
     // Reverse string
     ReverseString(name);
-    cout<<"Your string reverse from is : "<<name;
-    cout<<endl;
+    cout << "Your string reverse from is : " << name;
+    cout << endl;
+
+    // Check Palindrome or not
+    if (Check_Palinodrome(name))
+    {
+        cout << "Palindrome !";
+    }
+    else
+    {
+        cout<<"Not palindrome !";
+    }
+    
 
     return 0;
 }
