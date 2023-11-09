@@ -3,8 +3,11 @@
 // -->> At the last of the string it add a null character ('\0') for terminater character array
 
 #include <iostream>
+#include <string.h>
+#include <bits/stdc++.h>
 #include <vector>
 using namespace std;
+#define MAX_LENGTH_NAME 50;
 
 // -------------------**************************-------------------
 
@@ -50,11 +53,23 @@ bool Check_Palinodrome(char ch[])
         }
         else
         {
-            i++,j--;
+            i++, j--;
         }
-        
     }
     return true;
+}
+
+// -------------------**************************-------------------
+
+int StringLength(string s)
+{
+    int count = 0, i = 0;
+    while (s[i] != '\0')
+    {
+        count++;
+        i++;
+    }
+    return count;
 }
 
 // -------------------**************************-------------------
@@ -62,13 +77,15 @@ bool Check_Palinodrome(char ch[])
 int main()
 {
 
+    //---------------CHARACTER ARRAY--------------------
+
     // Initialize a character array
-    char name[20];
+    // char name[20];
 
-    cout << "Enter your name : ";
+    // cout << "Enter your name : ";
 
-    // Input character array || string but it get any new line,tab,space then it stop it execution (It means ,It store input untill it get any space,newline,and tab)
-    cin >> name;
+    // // Input character array || string but it get any new line,tab,space then it stop it execution (It means ,It store input untill it get any space,newline,and tab)
+    // cin >> name;
 
     // It terminate array at index 3
     //  name[3]='\0';
@@ -83,20 +100,28 @@ int main()
     // cout << "The length of name is :" << CountLength(name);
 
     // Reverse string
-    ReverseString(name);
-    cout << "Your string reverse from is : " << name;
-    cout << endl;
+    // ReverseString(name);
+    // cout << "Your string reverse from is : " << name;
+    // cout << endl;
 
-    // Check Palindrome or not
-    if (Check_Palinodrome(name))
-    {
-        cout << "Palindrome !";
-    }
-    else
-    {
-        cout<<"Not palindrome !";
-    }
-    
+    // // Check Palindrome or not
+    // if (Check_Palinodrome(name))
+    // {
+    //     cout << "Palindrome !";
+    // }
+    // else
+    // {
+    //     cout<<"Not palindrome !";
+    // }
+
+    //---------------STRING--------------------
+
+    string s;
+    cout << "Enter your string : ";
+    getline(cin, s, '\n');
+    cout << s << endl;
+
+    cout << "Length of the string : " << StringLength(s) << endl;
 
     return 0;
 }
