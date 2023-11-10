@@ -75,6 +75,27 @@ void Col_Wise_Sum(int arr[][2], int row, int col)
         cout << (i + 1) << "th col sum :" << sum << endl;
     }
 }
+
+// LARGEST ROW SUM
+void Largest_Row_Sum(int arr[][2], int row, int col)
+{
+    int largest = 0, largestIndex;
+    for (int i = 0; i < row; i++)
+    {
+        int sum = 0;
+        for (int j = 0; j < col; j++)
+        {
+            sum += arr[i][j];
+        }
+        cout << (i + 1) << "th row sum :" << sum << endl;
+        if (largest < sum)
+        {
+            largest = sum;
+            largestIndex = i;
+        }
+    }
+    cout << "Largest row sum : " << largest << "  And row number : " << largestIndex + 1 << endl;
+}
 int main()
 {
     int arr[3][2];                             // Initialize the 2d array with 3 row and 2 column
@@ -128,10 +149,14 @@ int main()
         Row_Wise_Sum(arr1, 3, 2);
 
     */
-    /**/
-    // col wise sum
-    Col_Wise_Sum(arr1, 3, 2);
+    /*
+        // col wise sum
+        Col_Wise_Sum(arr1, 3, 2);
 
-    /* */
+     */
+
+    /**/
+    Largest_Row_Sum(arr1, 3, 2);
+    /**/
     return 0;
 }
