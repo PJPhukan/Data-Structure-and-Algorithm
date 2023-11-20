@@ -85,5 +85,19 @@ int main()
           cout << " &p:" << &p << endl; // Address of p pointer
 
           */
+     /*
+          // CHRACTER ARRAY
+          char ch[6] = "parag";
+          cout << "ch :" << ch << endl; // Print the entire character array
+
+          char *p = &ch[0];
+          cout << "p :" << p << endl; // Print the entire string
+
+          char temp = 'x';
+          char *t = &temp;
+          cout << "t :" << t << endl;//It print first x and it goes to the next address and print untill it get null character
+
+
+     */
      return 0;
 }
