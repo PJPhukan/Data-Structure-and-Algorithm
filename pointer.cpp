@@ -8,6 +8,8 @@ using namespace std;
 
 int main()
 {
+     /*
+
     int x = 5;
     cout << " Value of x is : " << x << endl;
 
@@ -39,5 +41,49 @@ int main()
     ptri++;//move to next address
     cout<<*ptri<<endl;
 
-    return 0;
+*/
+     /*
+
+
+          // POINTER WITH ARRAY
+
+          int arr[10] = {0, 11, 22, 33, 44, 5, 6, 7, 8, 9}; // arr=arr[0]
+
+          cout << "&arr[10] :" << &arr[0] << endl; // Print Address of arr[0]
+
+          cout << "*arr :" << *arr << endl; // Print Address of arr[0] element
+
+          cout << "*arr+1 :" << *arr + 1 << endl; // Print Address of arr[0+1] element
+
+          // OR
+
+          cout << "*(arr+1) :" << *(arr + 1) << endl; // Print Address of arr[0+1] element
+
+          cout << "(*arr)+1 :" << (*arr) + 1 << endl; // Print  arr[0+1] element +1
+
+          cout << "arr[2] :" << arr[2] << endl; // Print  arr[2] element
+
+          cout << "arr[i] = *(arr+i):" << arr[2] << "=" << *(arr + 2) << endl; // Print  arr[2] element
+
+          // OR both are same
+
+          cout << "i[arr] = *(i+arr):" << 2 [arr] << "=" << *(2 + arr) << endl; // Print  arr[2] element
+
+          //& OPERATOR
+
+          int a[10] = {0, 11, 22, 33, 44};
+
+          // Below print statement are same
+          cout << " &a[0] :" << &a[0] << endl; // Address of the 0 index element
+          cout << " &a :" << &a << endl;       // Address of the first  element
+          cout << " a :" << a << endl;         // One array point the first element address
+
+
+          int *p = &arr[0];
+          cout << " p :" << p << endl;  // Print p pointer store address
+          cout << "*p:" << *p << endl;  // Print p pointer pointer store address element
+          cout << " &p:" << &p << endl; // Address of p pointer
+
+          */
+     return 0;
 }
