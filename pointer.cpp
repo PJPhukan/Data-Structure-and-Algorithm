@@ -6,6 +6,41 @@
 #include <vector>
 using namespace std;
 
+// POINTER WITH FUNCTIONS
+
+void Print(int *p)
+{
+     cout << "p :" << p << endl;    // Print ,pointer storing address
+     cout << "*p  :" << *p << endl; // Print ,pointer storing address value
+}
+
+void Update(int *p)
+{
+     /*
+          p = p + 1; // Only updated inside the fucntion
+          cout << "Inside p :" << p << endl;
+     */
+
+     /*
+          *p = *p + 10; //Value updated for holl program
+          cout << "Inside *p :" << *p << endl;
+     */
+}
+
+// int Get_Sum(int arr[], int n)
+//both are same
+int Get_Sum(int *arr, int n)
+{
+     cout << "sizeof arr :" << sizeof(arr) << endl; // It displays size of a pointer
+     int sum = 0;
+     for (int i = 0; i < n; i++)
+     {
+          sum += arr[i];
+          // sum += i[arr];
+          // Both are same
+     }
+     return sum;
+}
 int main()
 {
      /*
@@ -97,6 +132,29 @@ int main()
           char *t = &temp;
           cout << "t :" << t << endl;//It print first x and it goes to the next address and print untill it get null character
 
+
+     */
+     /*
+          // POINTER WITH FUNCTIONS
+
+          // Print value and address of a variable using funtion pointer
+          int t = 5;
+          int *p = &t;
+          Print(p);
+
+          // Updation value and address
+          cout << "Befor p:" << p << endl;
+          cout << "Befor *p:" << *p << endl;
+          Update(p);
+          cout << "Befor p:" << p << endl;
+          cout << "Befor *p:" << *p << endl;
+
+          // Get sum of an array
+          int a[5] = {11, 22, 33, 44, 56};
+          // cout << "Get sum: " << Get_Sum (a,5)<< endl;
+
+          // Benifit:We can send a part of array to the functions
+          cout << "Get sum:( a+3 i.e last two element)  :" << Get_Sum(a + 3, 2) << endl;
 
      */
      return 0;
