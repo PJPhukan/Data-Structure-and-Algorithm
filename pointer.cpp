@@ -28,7 +28,7 @@ void Update(int *p)
 }
 
 // int Get_Sum(int arr[], int n)
-//both are same
+// both are same
 int Get_Sum(int *arr, int n)
 {
      cout << "sizeof arr :" << sizeof(arr) << endl; // It displays size of a pointer
@@ -40,6 +40,26 @@ int Get_Sum(int *arr, int n)
           // Both are same
      }
      return sum;
+}
+
+void UpdateValue(int **ptr)
+{
+     // No change outside the function
+     //  ptr = ptr + 1;
+
+     // Some changes outside the function
+     //  *ptr = *ptr + 1;
+
+     // Change the value of i for all the program
+     // **ptr = **ptr + 1;
+}
+void update(int *p)
+{
+     *p = (*p) * 2;
+}
+void increment(int **p)
+{
+     ++(**p);
 }
 int main()
 {
@@ -156,6 +176,218 @@ int main()
           // Benifit:We can send a part of array to the functions
           cout << "Get sum:( a+3 i.e last two element)  :" << Get_Sum(a + 3, 2) << endl;
 
+     */
+
+     // DUBLE POINTER
+     /*
+          int i = 5;
+          int *ptr = &i;
+          int **dptr = &ptr;
+
+          cout << "i :" << i << endl;
+          cout << "*ptr :" << *ptr << endl;
+          cout << "**dptr :" << **dptr << endl;
+          // Above all the cout function print value of i ,means 5
+
+          cout << "&i :" << &i << endl;
+          cout << "ptr :" << ptr << endl;
+          cout << "*dptr :" << *dptr << endl;
+          // Above all the cout function print address of i
+
+          cout << "&ptr :" << &ptr << endl;
+          cout << "dptr :" << dptr << endl;
+          // Above all the cout function print address of ptr pointer
+     */
+
+     /*
+          // UPDATION USING FUNCTION
+          int i = 5;
+          int *ptr = &i;
+          int **dptr = &ptr;
+          cout << "Befor i :" << i << endl;
+          cout << "Befor ptr :" << ptr << endl;
+          cout << "Befor dptr :" << dptr << endl;
+          UpdateValue(dptr);
+          cout << "After i :" << i << endl;
+          cout << "After ptr :" << ptr << endl;
+          cout << "After dptr :" << dptr << endl;
+     */
+
+     //    MCQ
+     /*
+          // PROBLEM->1:
+          int first = 8;
+          int *p = &first;
+          cout << "(*p)++ :" << (*p)++ << endl;
+          cout << "first :" << first << endl;
+          // OUTPUT:-> 8 ,9
+     */
+     /*
+          // PROBLEM->2:
+          int *p = 0;
+          int first = 110;
+          *p = first;
+          cout << "*p :" << *p << endl;
+          // OUTPUT:-> sagmentation falt
+     */
+     /*
+          // PROBLEM->3:
+          int first = 8;
+          int second = 18;
+          int *ptr = &second;
+          *ptr = 9;
+          cout << "first:" << first << endl;
+          cout << "second:" << second << endl;
+          // OUTPUT:-> 8, 9
+     */
+     /*
+          // PROBLEM->4:
+          int first = 6;
+          int *p = &first;
+          int *q = p;
+          (*q)++;
+          cout << "first:" << first << endl;
+          // OUTPUT:-> 7
+     */
+     /*
+          // PROBLEM->5:
+          int first = 8;
+          int second = 11;
+          int *third = &second;
+          first = *third;
+          *third = *third + 2;
+          cout << "first:" << first << endl;
+          cout << "second:" << second << endl;
+          // OUTPUT:-> 11,13
+     */
+     /*
+          // PROBLEM->6:
+          float f = 12.5;
+          float p = 21.5;
+          float *ptr = &f;
+          (*ptr)++;
+          *ptr = p;
+          cout << "*ptr:" << *ptr << endl;
+          cout << "f:" << f << endl;
+          cout << "p:" << p << endl;
+          // OUTPUT:-> 21.5 , 21.5, 21.5
+     */
+     /*
+           // PROBLEM->7:
+          int arr[5];
+          int *ptr = 0;
+          cout << "sizeof(arr):" << sizeof(arr) << endl;
+          cout << "sizeof(ptr):" << sizeof(ptr) << endl;
+          // OUTPUT:-> 20 , sizeof a pointer
+     */
+     /*
+          // PROBLEM->8:
+          int arr[5] = {11, 21, 13, 14};
+          cout << "*(arr):" << *(arr) << endl;
+          cout << "*(arr+1):" << *(arr + 1) << endl;
+          // OUTPUT:-> 11,21
+     */
+     /*
+          // PROBLEM->9:
+          int arr[6] = {11, 12, 31};
+          cout << "arr:" << arr << endl;
+          cout << "&arr:" << &arr << endl;
+          // OUTPUT:-> print address of the first element of the array
+     */
+     /*
+          // PROBLEM->10:
+          int arr[6] = {11, 21, 31};
+          int *ptr = arr;
+          cout << "ptr[2]: " << ptr[2] << endl;
+          // OUTPUT:-> 31
+     */
+     /*
+          // PROBLEM->11:
+          int arr[6] = {11, 12, 13, 14, 15};
+          cout << "*(arr): " << *(arr) << endl;
+          cout << "*(arr+3): " << *(arr+3) << endl;
+          // OUTPUT:-> 11,14
+     */
+     /*
+          // PROBLEM->12:
+          int arr[6] = {11,21,31,41};
+          int *ptr=arr++;
+          cout << "*ptr: " << *ptr << endl;
+          // OUTPUT:-> Gives an error because we can't upgrade array
+     */
+     /*
+          // PROBLEM->13:
+          char ch = 'a';
+          char *ptr = &ch;
+          ch++;
+          cout << "*ptr: " << *ptr << endl;
+          // OUTPUT:-> b
+     */
+     /*
+          // PROBLEM->14:
+          char arr[]="abcde";
+          char *p=&arr[0];
+          cout << "p: " << p << endl;
+          // OUTPUT:-> abcde
+     */
+     /*
+          // PROBLEM->15:
+          char arr[] = "abcde";
+          char *p = &arr[0];
+          p++;
+          cout << "p: " << p << endl;
+          // OUTPUT:-> bcde
+     */
+     /*
+          // PROBLEM->16:
+          char str[] = "babbor";
+          char *p = str;
+          cout << "str[0]: " << str[0] << endl;
+          cout << "p[0]: " << p[0] << endl;
+          // OUTPUT:-> b, b
+     */
+     /*
+          // PROBLEM->17:
+          int i = 10;
+          update(&i);
+          cout << "i: " << i << endl;
+          // OUTPUT:-> 20
+     */
+     /*
+          // PROBLEM->18:
+          int i = 10;
+          update(&i);
+          cout << "i: " << i << endl;
+          // OUTPUT:-> 20
+     */
+     /*
+          // PROBLEM->19:
+          int first = 110;
+          int *p = &first;
+          int **q = &p;
+          int second = (**q)++ + 9;
+          cout << "first: " << first << endl;
+          cout << "second: " << second << endl;
+          // OUTPUT:-> 111,109
+     */
+     /*
+          // PROBLEM->20:
+          int first = 100;
+          int *p = &first;
+          int **q = &p;
+          int second = ++(**q);
+          int *r=*q;
+          cout << "first: " << first << endl;
+          cout << "second: " << second << endl;
+          // OUTPUT:-> 101,101
+     */
+     /*
+          // PROBLEM->20:
+          int num = 100;
+          int *ptr = &num;
+          increment(&ptr);
+          cout << "num: " << num << endl;
+          // OUTPUT:-> 101
      */
      return 0;
 }
