@@ -122,5 +122,98 @@ int main()
         // int *arr=new int[9];
         // delete []arr;//Array delete
     */
+
+    // 2D ARRAY DYNAMIC MEMORY ALLOCATION
+    /*
+        //Number of rows and columns both are same
+        int n;
+        cout << "Enter n:";
+        cin >> n;
+        int **arr = new int *[n];
+        for (int i = 0; i < n; i++)
+        {
+            arr[i] = new int[n];
+        }
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                cin >> arr[i][j];
+            }
+        }
+        cout << "Print 2d array :" << endl;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                cout << arr[i][j] << " ";
+            }
+            cout << endl;
+        }
+
+    */
+    /*
+        // Number of rows and columns both are different
+        int row,col;
+        cout << "Enter row number:";
+        cin >> row;
+        cout << "Enter col number:";
+        cin >> col;
+        int **arr = new int *[row];
+        for (int i = 0; i < row; i++)
+        {
+            arr[i] = new int[col];
+        }
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col; j++)
+            {
+                cin >> arr[i][j];
+            }
+        }
+        cout << "Print 2d array :" << endl;
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col; j++)
+            {
+                cout << arr[i][j] << " ";
+            }
+            cout << endl;
+        }
+    */
+    // Number of rows and columns both are different;Memory release
+    int row, col;
+    cout << "Enter row number:";
+    cin >> row;
+    cout << "Enter col number:";
+    cin >> col;
+    int **arr = new int *[row];
+    for (int i = 0; i < row; i++)
+    {
+        arr[i] = new int[col];
+    }
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+    cout << "Print 2d array :" << endl;
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    //delete allocated memory space
+    for (int i = 0; i < row; i++)
+    {
+        delete[] arr[i];
+    }
+    delete[] arr;
+
     return 0;
 }
