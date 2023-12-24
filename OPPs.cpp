@@ -60,6 +60,41 @@ public:
     }
 };
 
+// ENCAPTULATION
+class Encaptulation
+{
+private:
+    int data;
+    int date;
+};
+
+// INHERITANCE
+// syntax: class <<Derived-class-name>>:<<access-specifire>> <<Base-class-name>>{//derived class body};
+//--->>>>Base class or super class or perent class
+class Base{
+    private:
+        int private1;
+        int private2;
+
+    public:
+        int public1=12;
+        int public2=13;
+    protected:
+        int protected1=14;
+        int protected2=15;
+};
+//--->>> Derived class or  child class 
+class Derived:public Base{
+    public:
+        void display(){
+            cout<<"Value of Public1 :"<<public1<<endl;
+            cout<<"Value of Public2 :"<<public2<<endl;
+            cout << "Value of protected1 :" << protected1 << endl;
+            cout << "Value of protected2 :" << protected2 << endl;
+        }
+};
+
+
 // Asigned the value of the static data member outside the class (:: is called scope resolution operator )
 int Hero ::college = 123;
 
@@ -118,5 +153,19 @@ int main()
     //  member function access without creating object
     Hero::Sdisplay();
     */
+
+    /*
+    //ENCAPTULATION(wrapping up Data member functions .WHY :->>>> Information hiding/data hiding,Increase security,Read only(if we want ),Code reusebility Unit testing)
+     Encaptulation e;
+     // cout<<e.data<<endl;// we can't access any data member because of all data members are private means data hiding form outside the class (It's called Encaptulation)
+    */
+
+    // INHERITANCE (RE-USE EXITSTING CLASS MEMBER AND FUNCTION OTHER CLASS )
+    // Base class Access modifire----------Public-----------Protected-----------Private
+    //       Public                        Public            Protected          Private
+    //       Protected                   Protected         Protected             Private
+    //       Private                  Not accessable     Not accessable       Not accessable
+    Derived d;
+    d.display();
     return 0;
 }
