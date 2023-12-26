@@ -167,5 +167,11 @@ int main()
     //       Private                  Not accessable     Not accessable       Not accessable
     Derived d;
     d.display();
+    //Tyepes of inheritance
+    //(i) Single inheritance
+    //(ii) multiple inheritance
+    //(iii) multilevel inheritance
+    //(iv) hybrid inheritance
+    //(v) hierachical inheritance
     return 0;
 }
