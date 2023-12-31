@@ -1,0 +1,138 @@
+// Linked list :It is a linear data structure .(Collection of nodes)
+// We use it because of it is a dynamic data structure.
+// Types of linked list : (i) Singly linked list ,(ii) Doubly linked list ,(iii) Circular linked list  ans (iv) Circular Doubly linked list
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+// SINGLY LINKED LIST
+// creating a node
+class Node
+{
+public:
+    int data;
+    Node *next;
+    Node() {}
+    Node(int data)
+    {
+        this->data = data;
+        this->next = NULL;
+    }
+};
+// Insert node at the first
+void Insert_head(Node *&head, int data)
+{
+    // creating a new node
+    Node *temp = new Node(data);
+    temp->next = head;
+    head = temp;
+}
+
+// Insert node at any possition
+void Insert_mid(Node *&head, int possition, int data)
+{
+    Node *temp = new Node(data);
+    Node *temp_head = head;
+    if (possition == 1)
+    {
+        temp->next = temp_head;
+        head = temp;
+        return;
+    }
+    int count_node = 2;
+    while (count_node < possition && temp_head->next != NULL)
+    {
+        temp_head = temp_head->next;
+        count_node++;
+    }
+    temp->next = temp_head->next;
+    temp_head->next = temp;
+}
+
+// Insert node at the tail
+void Insert_tail(Node *&tail, int data)
+{
+    Node *temp = new Node(data);
+    tail->next = temp;
+    tail = temp;
+
+    // Another way to insert at the end if user pass the head pointer
+    /*
+    Node *head_temp = tail;
+    while (head_temp->next != NULL)
+    {
+        head_temp = head_temp->next;
+    }
+    head_temp->next = temp;
+    head_temp = temp;
+    */
+}
+
+// Delete node from any possition
+void Delete_node(Node *&head, int pos)
+{
+    Node *temp = head;
+    if (pos == 1)
+    {
+        head = temp->next;
+        delete temp;
+        return;
+    }
+    int count_node = 2;
+    while (count_node < pos)
+    {
+        temp = temp->next;
+        count_node++;
+    }
+    Node *current = temp->next;
+    temp->next = current->next;
+    delete current;
+    return;
+}
+
+// Traverse the linked list
+void Display(Node *head)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    // creating the head pointer
+    Node *head = NULL;
+
+    // create a new node
+    Node *node1 = new Node(4);
+    head = node1;
+    Node *tail = head;
+    Display(head);
+
+    // Insert node at the head
+    Insert_head(head, 3);
+    Insert_head(head, 2);
+
+    // Insert node at the tail
+    // Insert_tail(head, 5);//if we pass the head pointer
+    Insert_tail(tail, 5);
+    Insert_tail(tail, 8);
+    Display(head);
+
+    // Insert node at any possition
+    Insert_mid(head, 5, 18);
+    Display(head);
+
+    // delete node at any possition
+    Delete_node(head, 5);
+    Delete_node(head, 1);
+    Display(head);
+
+    return 0;
+}
