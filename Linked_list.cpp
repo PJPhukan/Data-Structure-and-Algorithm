@@ -171,7 +171,9 @@ void Doubly_delete(Node *&head, int pos)
     Node *temp = head;
     if (pos == 1)
     {
+        head->next->prev=NULL;
         head = temp->next;
+        temp->next=NULL;
         delete temp;
         return;
     }
@@ -184,6 +186,8 @@ void Doubly_delete(Node *&head, int pos)
     Node *current = temp->next;
     temp->next = current->next;
     current->next->prev = temp;
+    current->next=NULL;
+    current->prev=NULL;
     delete current;
 }
 
