@@ -204,6 +204,111 @@ void Print(Node *head)
 }
 */
 
+/*
+// CIRCULAR LINKED LIST
+class Node
+{
+public:
+    int data;
+    Node *next;
+    Node() {}
+    Node(int data)
+    {
+        this->data = data;
+        this->next = NULL;
+    }
+};
+// Insert node at the head
+void Circular_insert_head(Node *&head, int data)
+{
+    Node *temp = new Node(data);
+    temp->next = head;
+    Node *temp_head = head;
+    while (temp_head->next != head)
+    {
+        temp_head = temp_head->next;
+    }
+    head = temp;
+    temp_head->next = head;
+}
+
+// Insert node at the tail
+void Circular_insert_tail(Node *&head, int data)
+{
+    Node *temp = new Node(data);
+    Node *temp_head = head;
+
+    while (temp_head->next != head)
+    {
+        temp_head = temp_head->next;
+    }
+    temp->next = temp_head->next;
+    temp_head->next = temp;
+}
+
+// Insert node at any possitions
+void Circular_insert_mid(Node *&head, int data, int pos)
+{
+    if (pos == 1)
+    {
+        Circular_insert_head(head, data);
+        return;
+    }
+    int cnt = 2;
+    Node *temp = new Node(data);
+    Node *temp_head = head;
+    while (cnt < pos && temp_head->next != head)
+    {
+        temp_head = temp_head->next;
+        cnt++;
+    }
+    temp->next = temp_head->next;
+    temp_head->next = temp;
+}
+
+// Delete node from any possitions
+void Circular_delete(Node *&head, int pos)
+{
+    Node *temp, *current;
+    temp = current = head;
+    if (pos == 1)
+    {
+        head = temp->next;
+        while (temp->next != current)
+        {
+            temp = temp->next;
+        }
+        temp->next = head;
+        current->next = NULL;
+        delete current;
+        return;
+    }
+    int cnt = 1;
+    while (cnt < pos && current->next != head)
+    {
+        temp = current;
+        current = current->next;
+        cnt++;
+    }
+    temp->next = current->next;
+    current->next = NULL;
+    delete current;
+    return;
+}
+
+// Print the circular linked list
+void Display(Node *head)
+{
+    Node *temp = head;
+    do
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    } while (temp != head);
+    cout << endl;
+}
+*/
+
 int main()
 {
 
@@ -262,5 +367,28 @@ int main()
      Print(head);
     */
 
+    /*
+        // CIRCULAR LINKED LIST
+        Node *node1 = new Node(17);
+        Node *head = node1;
+        node1->next = head;
+
+        // Insert node at the head
+        Circular_insert_head(head, 67);
+        Circular_insert_head(head, 27);
+
+        // Insert node at the head
+        Circular_insert_tail(head, 87);
+        Circular_insert_tail(head, 97);
+
+        // Insert node at the head
+        Circular_insert_mid(head, 11, 2);
+        Circular_insert_mid(head, 64, 7);
+        Display(head);
+
+        // delete node from any possitions
+        Circular_delete(head, 3);
+        Display(head);
+    */
     return 0;
 }
