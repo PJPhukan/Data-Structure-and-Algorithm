@@ -309,11 +309,125 @@ void Display(Node *head)
 }
 */
 
+/*
+// CIRCULAR DOUBLY LINKED LIST
+class Node
+{
+public:
+    int data;
+    Node *next, *prev;
+    Node(int data)
+    {
+        this->data = data;
+        this->next = NULL;
+        this->prev = NULL;
+    }
+};
+
+// Insert node at the head
+void Circular_doubly_insert_head(Node *&head, int data)
+{
+    Node *temp = new Node(data);
+    Node *temp_head = head;
+    temp->next = head;
+    temp->prev = head->prev;
+    while (temp_head->next != head)
+    {
+        temp_head = temp_head->next;
+    }
+    temp_head->next = temp;
+    head = temp;
+}
+
+// Insert node at the tail
+void Circular_doubly_insert_tail(Node *&head, int data)
+{
+    Node *temp = new Node(data);
+    Node *temp_head = head;
+    while (temp_head->next != head)
+    {
+        temp_head = temp_head->next;
+    }
+    temp->next = temp_head->next;
+    temp_head->next = temp;
+    temp->prev = temp_head;
+    head->prev = temp;
+}
+
+// Insert node at any possition
+void Circular_doubly_insert_mid(Node *&head, int data, int pos)
+{
+    if (pos == 1)
+    {
+        Circular_doubly_insert_head(head, data);
+        return;
+    }
+    int cnt = 2;
+    Node *temp = new Node(data);
+    Node *temp_head = head;
+    while (cnt < pos && temp_head->next != head)
+    {
+        temp_head = temp_head->next;
+        cnt++;
+    }
+    temp->next = temp_head->next;
+    temp->prev = temp_head;
+    if (temp_head->next == head)
+    {
+        head->prev = temp;
+    }
+    temp_head->next = temp;
+}
+
+// Delete node from any possitions
+void Circular_doubly_delete_pos(Node *&head, int pos)
+{
+    Node *current, *temp = head;
+    current = head;
+    if (pos == 1)
+    {
+        while (temp->next != head)
+        {
+            temp = temp->next;
+        }
+        temp->next = current->next;
+        head = current->next;
+        head->prev = temp;
+        current->next = current->prev = NULL;
+        delete current;
+        return;
+    }
+    int cnt = 1;
+    while (cnt < pos && current->next != head)
+    {
+        temp = current;
+        current = current->next;
+        cnt++;
+    }
+    temp->next = current->next;
+    current->next->prev = temp;
+    current->next = current->prev = NULL;
+    delete current;
+}
+
+// Display the Circular Doubly linked list
+void Display(Node *head)
+{
+    Node *temp = head;
+    do
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    } while (temp != head);
+    cout << endl;
+}
+*/
+
 int main()
 {
 
     /*
-//SINGLY LINKED LIST
+    //SINGLY LINKED LIST
 
     // creating the head pointer
     Node *head = NULL;
@@ -390,5 +504,34 @@ int main()
         Circular_delete(head, 3);
         Display(head);
     */
+
+    /*
+        // CIRCULAR DOUBLY LINKED LIST
+        Node *node1 = new Node(12);
+        Node *head = node1;
+        node1->next = node1;
+        node1->prev = node1;
+        Display(head);
+
+        // Insert node at the first
+        Circular_doubly_insert_head(head, 8);
+        Circular_doubly_insert_head(head, 5);
+
+        // Insert node at the tail
+        Circular_doubly_insert_tail(head, 10);
+        Circular_doubly_insert_tail(head, 19);
+
+        // Insert node at any possition
+        Circular_doubly_insert_mid(head, 20, 1);
+        Circular_doubly_insert_mid(head, 20, 7);
+        Display(head);
+
+        // Delete node from any possition
+        Circular_doubly_delete_pos(head, 3);
+        Circular_doubly_delete_pos(head, 1);
+        Circular_doubly_delete_pos(head, 5);
+        Display(head);
+    */
+
     return 0;
 }
