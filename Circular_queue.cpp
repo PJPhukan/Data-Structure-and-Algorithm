@@ -1,6 +1,6 @@
-#include<iostream>
-#include<string>
-#include<vector>
+#include <iostream>
+#include <string>
+#include <vector>
 #include <map>
 #include <stack>
 #include <queue>
@@ -70,9 +70,36 @@ public:
         }
         return ans;
     }
+
+    bool isFull()
+    {
+        /*
+        if((front==0 && rear==size-1) || ( front!=0 && rear == (front-1)%(size-1)) ){
+            return true;
+        }
+        else {
+            return false;
+        }
+        */
+
+       //above condition gives error because sometime front goes to zero and if size is 1 the it will goes to zero so below conditions are use for checking isfull conditions 
+        if (front == 0 && rear == size - 1)
+        {
+            return true;
+        }
+        else if (front != 0 && rear == (front - 1 + size) % size)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 };
 
-int main(){
-    //Run on code studio enviroment 
+int main()
+{
+    // Run on code studio enviroment
     return 0;
 }
