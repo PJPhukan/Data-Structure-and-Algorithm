@@ -93,6 +93,7 @@ void DeleteNode(node *&root, int data)
             node *temp = root;
             root = root->left;
             delete temp;
+            return;
         }
 
         // Third Case: Only Right Child Present
@@ -101,6 +102,7 @@ void DeleteNode(node *&root, int data)
             node *temp = root;
             root = root->right;
             delete temp;
+            return;
         }
 
         // Fourth Case: Two Child/ Subtree present
@@ -133,6 +135,29 @@ void DeleteNodeIterative(node *&root, int data)
 {
     //   TODO:Complete this Functions
 }
+
+// search in BST
+bool SearchBST(node *root, int target)
+{
+    if (root == NULL)
+    {
+        return false;
+    }
+    if (root->data == target)
+    {
+        return true;
+    }
+    if (root->data > target)
+    {
+        bool left = SearchBST(root->left, target);
+    }
+    else
+    {
+
+        bool right = SearchBST(root->right, target);
+    }
+    return false;
+}
 int main()
 {
     node *root = nullptr;
@@ -152,7 +177,18 @@ int main()
     cout << "Minimum value of Binary Search Tree :" << FindMinValue(root) << endl;
 
     cout << "Deleting Node ...... Proccessing..." << endl;
-    DeleteNode(root, 14);
+    DeleteNode(root, 17);
+    cout << "After deletion :";
     DisplayInorder(root);
+    cout << endl;
+
+    if (SearchBST(root, 17))
+    {
+        cout << "Search found successfully" << endl;
+    }
+    else
+    {
+        cout << "Search failed" << endl;
+    }
     return 0;
 }
